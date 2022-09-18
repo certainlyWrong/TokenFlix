@@ -1,12 +1,12 @@
 import 'dart:convert';
-import 'package:tokenflix/model/movie_informations.model.dart';
 
 class MovieModel {
+  final int id;
+  bool isFavorite = false;
+  final double voteAverage;
   final List<String> genres;
-  final int id, voteAverage;
   final DateTime releaseDate;
   final String title, posterUrl;
-  MovieInformations? informations;
 
   MovieModel._({
     required this.id,
@@ -41,7 +41,6 @@ class MovieModel {
       'poster_url': posterUrl,
       'vote_average': voteAverage,
       'release_date': releaseDate.toIso8601String(),
-      if (informations != null) 'informations': informations!.toMap(),
     };
   }
 
