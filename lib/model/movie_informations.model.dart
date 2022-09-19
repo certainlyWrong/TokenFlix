@@ -2,20 +2,20 @@ import 'dart:convert';
 
 class MovieInformationsModel {
   final bool adult;
-  final int runTime;
+  final int runtime;
   final double voteAverage;
   final List<String> genres;
   final DateTime releaseDate;
-  final String backdroUrl, overview, posterUrl, title;
+  final String backdropUrl, overview, posterUrl, title;
 
   MovieInformationsModel._({
     required this.adult,
-    required this.backdroUrl,
+    required this.backdropUrl,
     required this.genres,
     required this.overview,
     required this.posterUrl,
     required this.releaseDate,
-    required this.runTime,
+    required this.runtime,
     required this.title,
     required this.voteAverage,
   });
@@ -23,8 +23,8 @@ class MovieInformationsModel {
   factory MovieInformationsModel.fromMap(Map<String, dynamic> map) {
     return MovieInformationsModel._(
       adult: map['adult'],
-      runTime: map['run_time'],
-      backdroUrl: map['backdro_url'],
+      runtime: map['runtime'],
+      backdropUrl: map['backdrop_url'],
       overview: map['overview'],
       posterUrl: map['poster_url'],
       title: map['title'],
@@ -42,8 +42,8 @@ class MovieInformationsModel {
   Map<String, dynamic> toMap() {
     return {
       'adult': adult,
-      'run_time': runTime,
-      'backdro_url': backdroUrl,
+      'runtime': runtime,
+      'backdrop_url': backdropUrl,
       'overview': overview,
       'poster_url': posterUrl,
       'title': title,

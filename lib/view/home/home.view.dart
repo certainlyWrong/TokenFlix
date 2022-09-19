@@ -67,7 +67,7 @@ class _HomeViewState extends State<HomeView> {
                 curve: Curves.easeInOut,
               );
             },
-            selectedItemColor: Theme.of(context).colorScheme.secondary,
+            selectedItemColor: Theme.of(context).colorScheme.tertiary,
             unselectedItemColor: Theme.of(context).colorScheme.onSurface,
             items: const [
               BottomNavigationBarItem(
