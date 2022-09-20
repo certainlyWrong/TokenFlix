@@ -2,7 +2,7 @@
 
 O desafio consiste em elaborar um aplicativo que obtenha os dados desta API, apresentando-os de forma simples e acessível, seguindo os padrões de usabilidade da plataforma. Preze pela qualidade e não pela velocidade, utilize o tempo que lhe foi dado da melhor forma possível.
 
-    O TokenFlix foi desenvolvido em Flutter. O TokenFlix consome a API REST disponibilizada no desafio e exibi os filmes em um catálogo virtual. Inicialmente, o usuário pode ver o poster do filme, seu rating e se está favoritado. Ao clicar no poster do filme, o usuário é redirecionado para a página de detalhes do filme, onde poderá ver mais informações sobre ele, como a sua sinopse.
+O TokenFlix foi desenvolvido em Flutter. O TokenFlix consome a API REST disponibilizada no desafio e exibi os filmes em um catálogo virtual. Inicialmente, o usuário pode ver o poster do filme, seu rating e se está favoritado. Ao clicar no poster do filme, o usuário é redirecionado para a página de detalhes do filme, onde poderá ver mais informações sobre ele, como a sua sinopse.
 
 ## **Arquitetura**
 A arquitetura escolhida para o projeto foi a MVC. Essa arquitetura é amplamente utilizada em aplicações web e permite uma melhor separação dos componentes da aplicação, o que facilita o desenvolvimento e a manutenção do código. Além disso, a MVC é compatível com diversas tecnologias e padrões web, o que torna mais fácil integrar novos recursos no projeto.
@@ -14,6 +14,15 @@ A arquitetura escolhida para o projeto foi a MVC. Essa arquitetura é amplamente
 | **provider** | [![pub package](https://img.shields.io/pub/v/provider.svg)](https://pub.dev/packages/provider) |
 | **flex_color_scheme** | [![pub package](https://img.shields.io/pub/v/flex_color_scheme.svg)](https://pub.dev/packages/flex_color_scheme) |
 | **cached_network_image** | [![pub package](https://img.shields.io/pub/v/cached_network_image.svg)](https://pub.dev/packages/cached_network_image) |
+
+**http**: Existem boas alternativas da packages para realizar as requisições, como o "dio". Para esse projeto simples escolhi usar esse package abstraído por outra classe. Com isso, não importa o package, as requisições serão abstraídas e sempre as mesmas.
+
+**provider**: Usado para injetar dependências na arvore de widgets. Os controllers foram injetados por meio do "MultiProvider".
+
+**flex_color_scheme**: Usado para facilitar a personalização de um tema para o app.
+
+**cached_network_image**: Usado para carregar as imagens ou mostrar outra estrutura em caso de erro. Sua funcionalidade de placeholder é uma ótima forma de mostrar ao usuário que algum conteúdo está sendo carregado.
+
 
 
 
