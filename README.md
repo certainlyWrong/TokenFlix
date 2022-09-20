@@ -25,9 +25,10 @@ A arquitetura escolhida para o projeto foi a MVC. Essa arquitetura é amplamente
 
 
 
-
 <div align="center" width=95%>
-    <img src="docs/screencast.gif">
+<img src="docs/screencast.gif">
+</div>
+<div align="center" width=95%>
     <img src="docs/iPhone_SE.png" width=40%>
     <img src="docs/iPhone_SE_(1).png" width=40%>
     <img src="docs/Pixel_5.png" width=40%>
