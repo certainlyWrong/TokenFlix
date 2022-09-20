@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:tokenflix/view/home/page/movies.page.dart';
+import 'package:flutter/services.dart';
+import 'package:tokenflix/view/movies/movies.view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -19,6 +20,8 @@ class _HomeViewState extends State<HomeView> {
       initialPage: selectedIndex.value,
       keepPage: false,
     );
+
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: []);
     super.initState();
   }
 
@@ -31,64 +34,66 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('TokenFlix'),
-      ),
-      body: PageView(
-        controller: pageController,
-        dragStartBehavior: DragStartBehavior.down,
-        onPageChanged: (index) {
-          selectedIndex.value = index;
-        },
-        children: const [
-          MoviesPage(),
-          Center(
-            child: Text('Favorites'),
-          ),
-          Center(
-            child: Text('Search'),
-          ),
-          Center(
-            child: Text('Settings'),
-          ),
-        ],
-      ),
-      bottomNavigationBar: ValueListenableBuilder(
-        valueListenable: selectedIndex,
-        builder: (context, int value, child) {
-          return BottomNavigationBar(
-            currentIndex: value,
-            onTap: (index) {
-              selectedIndex.value = index;
-              pageController.animateToPage(
-                index,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-              );
-            },
-            selectedItemColor: Theme.of(context).colorScheme.tertiary,
-            unselectedItemColor: Theme.of(context).colorScheme.onSurface,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.movie),
-                label: 'Movies',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.favorite),
-                label: 'Favorites',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: 'Search',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Settings',
-              ),
-            ],
-          );
-        },
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('TokenFlix'),
+        ),
+        body: PageView(
+          controller: pageController,
+          dragStartBehavior: DragStartBehavior.down,
+          onPageChanged: (index) {
+            selectedIndex.value = index;
+          },
+          children: const [
+            MoviesPage(),
+            Center(
+              child: Text('Favorites'),
+            ),
+            Center(
+              child: Text('Search'),
+            ),
+            Center(
+              child: Text('Settings'),
+            ),
+          ],
+        ),
+        bottomNavigationBar: ValueListenableBuilder(
+          valueListenable: selectedIndex,
+          builder: (context, int value, child) {
+            return BottomNavigationBar(
+              currentIndex: value,
+              onTap: (index) {
+                selectedIndex.value = index;
+                pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              },
+              selectedItemColor: Theme.of(context).colorScheme.tertiary,
+              unselectedItemColor: Theme.of(context).colorScheme.onSurface,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.movie),
+                  label: 'Movies',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite),
+                  label: 'Favorites',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.search),
+                  label: 'Search',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.settings),
+                  label: 'Settings',
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

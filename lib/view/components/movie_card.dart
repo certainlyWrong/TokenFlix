@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tokenflix/model/movie.model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:tokenflix/view/home/page/movie_informations.page.dart';
+import 'package:tokenflix/view/movie_informations/movie_informations.view.dart';
 import 'package:tokenflix/controller/movie_informations.controller.dart';
 
 class MovieCard extends StatefulWidget {
@@ -64,13 +64,13 @@ class _MovieCardState extends State<MovieCard> {
             ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
               child: CachedNetworkImage(
-                width: widget.width,
-                height: widget.height,
+                width: widget.width ?? 100,
+                height: widget.height ?? 150,
                 imageUrl: widget.movie.posterUrl,
                 fit: BoxFit.cover,
                 errorWidget: (context, url, error) => Container(
-                  width: widget.width,
-                  height: widget.height,
+                  width: widget.width ?? 100,
+                  height: widget.height ?? 150,
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.primaryContainer,
                     borderRadius: BorderRadius.circular(15),
@@ -89,13 +89,14 @@ class _MovieCardState extends State<MovieCard> {
                           color:
                               Theme.of(context).colorScheme.onPrimaryContainer,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
                 ),
                 placeholder: (context, url) => Container(
-                  width: widget.width,
-                  height: widget.height,
+                  width: widget.width ?? 100,
+                  height: widget.height ?? 150,
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(15),
@@ -107,7 +108,7 @@ class _MovieCardState extends State<MovieCard> {
               ),
             ),
             SizedBox(
-              width: widget.width,
+              width: widget.width ?? 100,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
